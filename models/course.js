@@ -8,14 +8,16 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Course.associate = function(models) {
     // associations can be defined here
-    Course.belongsTo(models.Campus, {foreignKey: 'campusId'});
-    Course.belongsTo(models.Department, {foreignKey: 'departmentId'});
+    Course.belongsTo(models.Campus, { foreignKey: 'campusId' });
+    Course.belongsTo(models.Department, { foreignKey: 'departmentId' });
+
     const columnMapping = {
       foreignKey: 'courseId',
       through: 'Enrollments',
-      otherKey: 'personId'
+      otherKey: 'personId',
     };
     Course.belongsToMany(models.Person, columnMapping);
+    
   };
   return Course;
 };

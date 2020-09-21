@@ -31,6 +31,9 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-   return queryInterface.bulkDelete('Courses', null, {});
-  }
+
+    return queryInterface.bulkDelete('Courses', {
+      id: { [Sequelize.Op.gt]: 0 }
+    });
+ }
 };

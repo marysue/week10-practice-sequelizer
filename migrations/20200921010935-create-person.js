@@ -7,16 +7,19 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
-        // references: {model: 'Enrollments'}
       },
       firstName: {
-        type: Sequelize.STRING(50)
+        type: Sequelize.STRING(50),
+        allowNull: false
       },
       lastName: {
-        type: Sequelize.STRING(50)
+        type: Sequelize.STRING(50),
+        allowNull: false
       },
       email: {
-        type: Sequelize.STRING(255)
+        type: Sequelize.STRING(255),
+        unique: true,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
